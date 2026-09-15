@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import "./FoodManager.css";
-
+const API_BASE_URL = import.meta.env.VITE_API_URL;
 
 function FoodManager({ user, onLogout }) {
   const [food, setFood] = useState([]);
@@ -35,7 +35,7 @@ async function loadStockAlerts() {
     setStockError("");
 
     const response = await fetch(
-      "http://localhost:5000/api/manager/stock-alerts"
+      `${API_BASE_URL}/api/manager/stock-alerts`
     );
 
     const data = await response.json();
@@ -71,7 +71,7 @@ async function loadStockAlerts() {
       setError("");
 
       const response = await fetch(
-        "http://localhost:5000/api/food"
+        `${API_BASE_URL}/api/food`
       );
 
       const text = await response.text();
@@ -107,7 +107,7 @@ async function loadSalesData() {
     setSalesError("");
 
     const response = await fetch(
-      "http://localhost:5000/api/manager/sales"
+      `${API_BASE_URL}/api/manager/sales`
     );
 
     const data = await response.json();
@@ -133,7 +133,7 @@ async function loadDemandData() {
     setDemandError("");
 
     const response = await fetch(
-      "http://localhost:5000/api/manager/demand"
+      `${API_BASE_URL}/api/manager/demand`
     );
 
     const data = await response.json();
@@ -160,7 +160,7 @@ async function loadGraphData() {
     setGraphError("");
 
     const response = await fetch(
-      "http://localhost:5000/api/manager/graphs"
+      `${API_BASE_URL}/api/manager/graphs`
     );
 
     const data = await response.json();
@@ -184,7 +184,7 @@ async function loadGraphData() {
   async function updateAvailability(item) {
     try {
       const response = await fetch(
-        `http://localhost:5000/api/manager/food/${item.id}/availability`,
+        `${API_BASE_URL}/api/manager/food/${item.id}/availability`,
         {
           method: "PUT",
           headers: {
@@ -411,7 +411,7 @@ if (managerSection === "alerts") {
   onClick={async () => {
     try {
       const response = await fetch(
-        "http://localhost:5000/api/manager/food",
+        `${API_BASE_URL}/api/manager/food`,
         {
           method: "POST",
           headers: {
@@ -610,7 +610,7 @@ if (managerSection === "alerts") {
   onClick={async () => {
     try {
       const response = await fetch(
-        `http://localhost:5000/api/manager/food/${editingFood.id}`,
+        `${API_BASE_URL}/api/manager/food/${editingFood.id}`,
         {
           method: "PUT",
           headers: {
@@ -699,7 +699,7 @@ if (managerSection === "alerts") {
 
                 try {
                   const response = await fetch(
-                    `http://localhost:5000/api/manager/food/${item.id}`,
+                    `${API_BASE_URL}/api/manager/food/${item.id}`,
                     {
                       method: "DELETE",
                     }

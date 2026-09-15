@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+const API_BASE_URL = import.meta.env.VITE_API_URL;
 function Auth({ onLogin }) {
   const [mode, setMode] = useState("login");
 
@@ -22,8 +22,8 @@ const [password, setPassword] = useState("");
     try {
       const endpoint =
         mode === "login"
-          ? "http://localhost:5000/api/auth/login"
-          : "http://localhost:5000/api/auth/signup";
+          ? `${API_BASE_URL}/api/auth/login`
+          : `${API_BASE_URL}/api/auth/signup`;
 
       const body =
         mode === "login"

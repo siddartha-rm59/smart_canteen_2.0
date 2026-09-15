@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-
+const API_BASE_URL = import.meta.env.VITE_API_URL;
 
 import {
   Html5Qrcode,
@@ -39,7 +39,7 @@ const [historyOpen, setHistoryOpen] = useState(false);
       setError("");
 
       const response = await fetch(
-        "http://localhost:5000/api/waiter/orders"
+        `${API_BASE_URL}/api/waiter/orders`
       );
 
       const data = await response.json();
@@ -63,7 +63,7 @@ const [historyOpen, setHistoryOpen] = useState(false);
 async function loadHistory() {
   try {
     const response = await fetch(
-      "http://localhost:5000/api/waiter/order-history"
+      `${API_BASE_URL}/api/waiter/order-history`
     );
 
     const data = await response.json();
@@ -92,7 +92,7 @@ useEffect(() => {
   async function updateStatus(orderId, status) {
     try {
       const response = await fetch(
-        `http://localhost:5000/api/waiter/orders/${orderId}/status`,
+        `${API_BASE_URL}/api/waiter/orders/${orderId}/status`,
         {
           method: "PUT",
           headers: {
@@ -1109,7 +1109,7 @@ async (decodedText) => {
     console.log("QR DATA:", qrData);
 
     const response = await fetch(
-      "http://localhost:5000/api/qr/scan",
+      `${API_BASE_URL}/api/qr/scan`,
       {
         method: "POST",
         headers: {

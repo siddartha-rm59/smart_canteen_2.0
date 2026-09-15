@@ -5,7 +5,7 @@ import "./App.css";
 import Waiter from"./waiter";
 import Auth from "./Auth";
 import FoodManager from "./FoodManager";
-
+const API_BASE_URL = import.meta.env.VITE_API_URL;
 
 function App() {
   const [user, setUser] = useState(() => {
@@ -61,7 +61,7 @@ useEffect(() => {
   async function loadFood() {
     try {
       const response = await fetch(
-        "http://localhost:5000/api/food"
+        `${API_BASE_URL}/api/food`
       );
 
       if (!response.ok) {
@@ -81,7 +81,7 @@ useEffect(() => {
 async function loadStudentOrders() {
   try {
     const response = await fetch(
-      `http://localhost:5000/api/orders/student/${user.id}`
+      `${API_BASE_URL}/api/orders/student/${user.id}`
     );
 
     const data = await response.json();
@@ -1026,7 +1026,7 @@ let cashfreeOrderId = null;
 
       // STEP 1: Create order
       const orderResponse = await fetch(
-        "http://localhost:5000/api/orders",
+        `${API_BASE_URL}/api/orders`,
         {
           method: "POST",
           headers: {
@@ -1054,7 +1054,7 @@ createdOrderId = orderData.order_id;
 
      // STEP 2: Create Cashfree payment order
 const cashfreeResponse = await fetch(
-  "http://localhost:5000/api/cashfree/create-order",
+  `${API_BASE_URL}/api/cashfree/create-order`,
   {
     method: "POST",
     headers: {
@@ -1094,7 +1094,7 @@ if (checkoutResult?.error) {
 
 // STEP 4: Verify payment
 const verifyResponse = await fetch(
-  "http://localhost:5000/api/cashfree/verify-payment",
+  `${API_BASE_URL}/api/cashfree/verify-payment`,
   {
     method: "POST",
     headers: {
@@ -1131,7 +1131,7 @@ setBillOpen(false);
   if (createdOrderId) {
     try {
       await fetch(
-        "http://localhost:5000/api/cashfree/cancel-payment",
+        `${API_BASE_URL}/api/cashfree/cancel-payment`,
         {
           method: "POST",
           headers: {
