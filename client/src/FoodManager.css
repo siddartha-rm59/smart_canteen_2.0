@@ -1,0 +1,741 @@
+/* =========================================
+   FOOD MANAGER - PREMIUM DASHBOARD
+========================================= */
+
+.manager-page {
+  min-height: 100vh;
+  background: #f6f8fc;
+  color: #172033;
+  font-family: Arial, sans-serif;
+}
+
+/* HEADER */
+
+.manager-header {
+  height: 74px;
+  padding: 0 34px;
+  background: rgba(255, 255, 255, 0.96);
+  border-bottom: 1px solid #e8ebf2;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(12px);
+}
+
+.manager-header h1 {
+    color:#2563eb;
+  margin: 0;
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: -0.4px;
+}
+
+.manager-header p {
+  margin: 5px 0 0;
+  color: #8992a5;
+  font-size: 13px;
+}
+
+.manager-logout {
+  border: 0;
+  padding: 10px 18px;
+  border-radius: 10px;
+
+  background: #172033;
+  color: white;
+
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+
+  transition: 0.2s ease;
+}
+
+.manager-logout:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 7px 18px rgba(23, 32, 51, 0.18);
+}
+
+/* MAIN */
+
+.manager-content {
+  max-width: 1250px;
+  margin: auto;
+  padding: 34px;
+}
+
+/* WELCOME CARD */
+
+.manager-welcome {
+  position: relative;
+  overflow: hidden;
+
+  padding: 32px;
+  margin-bottom: 28px;
+
+  border-radius: 22px;
+
+  background:
+    radial-gradient(circle at 85% 20%, rgba(255,255,255,.18), transparent 30%),
+    linear-gradient(135deg, #315bea, #6547e8);
+
+  color: white;
+
+  box-shadow: 0 15px 35px rgba(72, 82, 220, 0.20);
+}
+
+.manager-welcome::after {
+  content: "";
+  position: absolute;
+
+  width: 180px;
+  height: 180px;
+
+  right: -50px;
+  bottom: -80px;
+
+  border-radius: 50%;
+
+  background: rgba(255,255,255,.10);
+}
+
+.manager-welcome p {
+  margin: 0 0 8px;
+  font-size: 13px;
+  opacity: .75;
+}
+
+.manager-welcome h2 {
+  margin: 0;
+  font-size: 30px;
+  font-weight: 800;
+  letter-spacing: -.7px;
+}
+
+.manager-welcome span {
+  display: block;
+  margin-top: 8px;
+  font-size: 14px;
+  opacity: .82;
+}
+
+/* =========================================
+   DASHBOARD MENU
+========================================= */
+
+.manager-menu {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+
+  margin-bottom: 28px;
+}
+
+.manager-menu h2 {
+  grid-column: 1 / -1;
+
+  margin: 10px 0 -4px;
+
+  font-size: 13px;
+  font-weight: 800;
+
+  color: #8a93a6;
+
+  letter-spacing: 1.2px;
+}
+
+.manager-menu button {
+  min-height: 105px;
+
+  position: relative;
+
+  border: 1px solid #e7eaf1;
+  border-radius: 17px;
+
+  background: white;
+
+  color: #172033;
+
+  padding: 22px;
+
+  text-align: left;
+
+  font-size: 15px;
+  font-weight: 750;
+
+  cursor: pointer;
+
+  box-shadow: 0 5px 18px rgba(24, 32, 55, 0.045);
+
+  transition:
+    transform .22s ease,
+    box-shadow .22s ease,
+    border-color .22s ease;
+}
+
+.manager-menu button::after {
+  content: "→";
+
+  position: absolute;
+  right: 20px;
+  bottom: 17px;
+
+  color: #315bea;
+
+  font-size: 18px;
+
+  transition: transform .22s ease;
+}
+
+.manager-menu button:hover {
+  transform: translateY(-4px);
+
+  border-color: #cfd7ff;
+
+  box-shadow: 0 14px 30px rgba(40, 55, 100, 0.10);
+}
+
+.manager-menu button:hover::after {
+  transform: translateX(5px);
+}
+
+/* =========================================
+   FOOD SECTION
+========================================= */
+
+.manager-section {
+  background: white;
+
+  border: 1px solid #e8ebf2;
+  border-radius: 20px;
+
+  padding: 28px;
+
+  box-shadow: 0 7px 25px rgba(20, 30, 55, 0.055);
+}
+
+.manager-section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 15px;
+
+  margin-bottom: 25px;
+}
+
+.manager-section-header h2 {
+  margin: 0;
+
+  font-size: 22px;
+  font-weight: 800;
+}
+
+.manager-section-header p {
+  margin: 6px 0 0;
+
+  color: #8992a5;
+  font-size: 13px;
+}
+
+/* SECTION BUTTONS */
+
+.manager-refresh,
+.manager-add-food {
+  border: 0;
+  border-radius: 10px;
+
+  padding: 10px 16px;
+
+  font-size: 13px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition: .2s ease;
+}
+
+.manager-refresh {
+  background: #f1f3f8;
+  color: #4c566b;
+}
+
+.manager-refresh:hover {
+  background: #e7eaf1;
+}
+
+.manager-add-food {
+  background: #315bea;
+  color: white;
+
+  box-shadow: 0 6px 15px rgba(49, 91, 234, .18);
+}
+
+.manager-add-food:hover {
+  background: #274dd0;
+  transform: translateY(-1px);
+}
+
+/* BACK BUTTON */
+
+.manager-section > button:first-child {
+  border: 0;
+  background: transparent;
+
+  color: #315bea;
+
+  font-size: 13px;
+  font-weight: 700;
+
+  padding: 4px 0 18px;
+
+  cursor: pointer;
+}
+
+/* =========================================
+   FOOD CARDS
+========================================= */
+.manager-food-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.manager-food-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+
+  align-items: center;
+  gap: 30px;
+
+  min-height: 105px;
+  padding: 20px 24px;
+
+  border: 1px solid #edf0f5;
+  border-radius: 16px;
+
+  background: #ffffff;
+
+  transition: 0.2s ease;
+}
+
+.manager-food-card:hover {
+  border-color: #dbe1ef;
+  box-shadow: 0 8px 22px rgba(25, 35, 60, 0.06);
+}
+
+.manager-food-info {
+  min-width: 0;
+}
+
+.manager-food-info h3 {
+  margin: 0 0 6px;
+
+  font-size: 17px;
+  font-weight: 750;
+  color: #20283a;
+}
+
+.manager-food-info p {
+  margin: 0 0 8px;
+
+  color: #929aac;
+  font-size: 13px;
+}
+
+.manager-food-info strong {
+  font-size: 15px;
+  color: #315bea;
+}
+
+.manager-food-status {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  gap: 12px;
+  min-width: 360px;
+}
+
+.manager-food-status span {
+  font-size: 12px;
+  color: #747d91;
+  white-space: nowrap;
+}
+
+.available,
+.unavailable {
+  padding: 6px 11px;
+
+  border-radius: 20px;
+
+  font-size: 11px !important;
+  font-weight: 800;
+
+  white-space: nowrap;
+}
+
+.available {
+  color: #16834a !important;
+  background: #e8f8ef;
+}
+
+.unavailable {
+  color: #d33a4b !important;
+  background: #fff0f2;
+}
+
+.manager-food-status button {
+  border: 1px solid #e1e5ec;
+
+  background: white;
+  color: #4b5568;
+
+  padding: 9px 13px;
+
+  border-radius: 9px;
+
+  font-size: 12px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  white-space: nowrap;
+
+  transition: 0.2s ease;
+}
+
+.manager-food-status button:hover {
+  border-color: #315bea;
+  color: #315bea;
+}
+
+/* =========================================
+   ADD / EDIT FORM
+========================================= */
+
+.manager-add-food-form {
+  display: grid;
+  gap: 13px;
+
+  padding: 25px;
+
+  margin-bottom: 24px;
+
+  background: #fafbfe;
+
+  border: 1px solid #e6eaf2;
+  border-radius: 16px;
+}
+
+.manager-add-food-form h3 {
+  margin: 0 0 5px;
+
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.manager-add-form-label {
+    display: block;
+    margin-bottom: 4px;
+    font-weight: 600;
+  font-size: 13px;
+  color: #6b7280;
+}
+
+.manager-add-food-form input,
+.manager-add-food-form select {
+  width: 100%;
+  box-sizing: border-box;
+
+  padding: 13px 15px;
+
+  border: 1px solid #dfe4ed;
+  border-radius: 10px;
+
+  background: white;
+
+  color: #172033;
+
+  font-size: 13px;
+
+  outline: none;
+
+  transition: .2s ease;
+}
+
+.manager-add-food-form input:focus,
+.manager-add-food-form select:focus {
+  border-color: #315bea;
+  box-shadow: 0 0 0 3px rgba(49, 91, 234, .08);
+}
+
+.manager-add-food-form button {
+  padding: 12px 22px;
+margin-right: 10px;
+  border: 0;
+  border-radius: 10px;
+
+  background: #315bea;
+  color: white;
+
+  font-size: 14px;
+  font-weight: 750;
+
+  cursor: pointer;
+}
+
+.manager-add-food-form button:last-child {
+  background: #eceff4;
+  color: #4d5668;
+}
+
+/* STATUS */
+
+.manager-status {
+  padding: 35px;
+
+  text-align: center;
+
+  color: #8b94a7;
+
+  font-size: 14px;
+}
+
+.manager-status.error {
+  color: #dc3545;
+}
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 850px) {
+  .manager-menu {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .manager-content {
+    padding: 25px 20px;
+  }
+}
+
+@media (max-width: 600px) {
+  .manager-header {
+    height: 68px;
+    padding: 0 18px;
+  }
+
+  .manager-header h1 {
+    font-size: 20px;
+  }
+
+  .manager-header p {
+    display: none;
+  }
+
+  .manager-content {
+    padding: 18px 14px;
+  }
+
+  .manager-welcome {
+    padding: 25px;
+    border-radius: 17px;
+  }
+
+  .manager-welcome h2 {
+    font-size: 24px;
+  }
+
+  .manager-menu {
+    grid-template-columns: 1fr;
+  }
+
+  .manager-section {
+    padding: 20px;
+  }
+
+  .manager-food-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .manager-food-status {
+    justify-content: flex-start;
+  }
+
+  .manager-section-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+
+
+.manager-sales-summary {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin-top: 25px;
+}
+
+.manager-sales-card {
+  background: white;
+  padding: 25px;
+  border-radius: 16px;
+  box-shadow: 0 5px 18px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.manager-sales-card span {
+  color: #666;
+  font-size: 14px;
+}
+
+.manager-sales-card strong {
+  font-size: 26px;
+}
+
+.manager-sales-table {
+  background: white;
+  margin-top: 25px;
+  padding: 25px;
+  border-radius: 16px;
+  box-shadow: 0 5px 18px rgba(0, 0, 0, 0.08);
+}
+
+.manager-sales-table h3 {
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+.manager-sales-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.manager-sales-row:last-child {
+  border-bottom: none;
+}
+
+.manager-sales-row div {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.manager-sales-row span {
+  color: #777;
+  font-size: 14px;
+}
+
+
+
+.manager-graph {
+  margin-top: 28px;
+  padding: 30px;
+  background: linear-gradient(145deg, #ffffff, #f8faf9);
+  border: 1px solid #e5e7eb;
+  border-radius: 24px;
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.06),
+    0 2px 8px rgba(0, 0, 0, 0.03);
+}
+
+.manager-graph h3 {
+  margin: 0 0 28px;
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -0.3px;
+}
+
+.manager-bar-chart {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  gap: 28px;
+  height: 360px;
+  padding: 25px 20px 0;
+  overflow-x: auto;
+  border-radius: 16px;
+  background:
+    repeating-linear-gradient(
+      to top,
+      transparent 0,
+      transparent 71px,
+      #e5e7eb 72px
+    );
+  border-bottom: 1px solid #d1d5db;
+}
+
+.manager-bar-item {
+  position: relative;
+  flex: 0 0 82px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.manager-bar-value {
+  margin-bottom: 9px;
+  font-size: 14px;
+  font-weight: 800;
+  color: #111827;
+}
+
+.manager-bar-wrapper {
+  width: 52px;
+  height: 250px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.manager-bar {
+  width: 100%;
+  min-height: 5px;
+  border-radius: 12px 12px 4px 4px;
+  background: linear-gradient(
+    to top,
+    #15803d,
+    #22c55e
+  );
+  box-shadow:
+    0 6px 14px rgba(22, 163, 74, 0.22);
+  transition:
+    height 0.5s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.manager-bar:hover {
+  transform: translateY(-5px);
+  box-shadow:
+    0 12px 22px rgba(22, 163, 74, 0.3);
+}
+
+.manager-bar-label {
+  width: 82px;
+  margin-top: 12px;
+  font-size: 12px;
+  line-height: 1.3;
+  font-weight: 600;
+  color: #4b5563;
+  text-align: center;
+  word-break: break-word;
+}
+
+
+
